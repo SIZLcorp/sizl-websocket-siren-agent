@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "moduleResolution": "nodenext",
+    "noImplicitAny": true,
+    "declaration": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/typings"
+    ],
+    "allowJs": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist"
+  },
+  "ts-node": {
+    "files": true,
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

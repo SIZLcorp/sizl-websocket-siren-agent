@@ -1,0 +1,13 @@
+{
+	"apps": [
+		{
+			"name": "Siren",
+			"script": "node",
+			"args": "dist",
+			"env": {
+				"MFR_CODE": "P0000157",
+				"WEBSOCKET_URL": "wss://fw1j7695z7.execute-api.ap-northeast-2.amazonaws.com/dev"
+			}
+		}
+	]
+}
