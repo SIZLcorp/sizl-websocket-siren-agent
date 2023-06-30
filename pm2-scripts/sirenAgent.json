@@ -5,7 +5,8 @@
 			"script": "node",
 			"args": "dist",
 			"env": {
-				"MFR_CODE": "P0000157",
+				"MFR_CODE": "P0000151",
+				"COMPANY_CODE": "5YN15X",
 				"WEBSOCKET_URL": "wss://fw1j7695z7.execute-api.ap-northeast-2.amazonaws.com/dev"
 			}
 		}
