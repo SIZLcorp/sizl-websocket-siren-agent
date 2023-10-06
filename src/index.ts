@@ -2,6 +2,7 @@ import 'dotenv/config'
 
 import WebSocket from 'ws'
 import Debug from 'debug'
+import { getLampCommand, sendCommand } from './ilooksLamp'
 const debug = Debug('sizl-siren')
 
 const connectionDebug = debug.extend('connection')
@@ -14,6 +15,8 @@ const PING_TIMEOUT_INTERVAL = 31000
 const PING_INTERVAL = 30000
 const MFR_CODE = process.env.MFR_CODE || 'customCode'
 const COMPANY_CODE = process.env.COMPANY_CODE || 'customCompany'
+const LAMP_IP = process.env.LAMP_IP || '192.168.0.100'
+const LAMP_PORT = parseInt(process.env.LAMP_PORT || '0000') || 10000
 
 let openedSocketFlag = false
 let pingInterval: NodeJS.Timer
@@ -73,9 +76,20 @@ function connect(): Promise<boolean> {
       resolve(openedSocketFlag)
     })
 
-    client.on('message', function message(data) {
+    client.on('message', async function message(data) {
       receiveDebug(COMPANY_CODE + '>' + MFR_CODE + ': received: %s', data)
-      // TODO: do something with data
+
+      await sendCommand(LAMP_IP, LAMP_PORT, getLampCommand({
+        redLamp: 'BLINK',
+        sound: '1',
+      }))
+
+      setTimeout(async () => {
+        await sendCommand(LAMP_IP, LAMP_PORT, getLampCommand({
+          redLamp: 'OFF',
+          sound: 'OFF',
+        }))
+      }, 2000)
     })
   })
 }
