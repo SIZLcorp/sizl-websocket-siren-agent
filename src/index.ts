@@ -105,7 +105,6 @@ async function reconnect() {
 
 connect()
 
-// repeat every timeInterval
 setInterval(() => {
   if (!openedSocketFlag) {
     reconnect()
