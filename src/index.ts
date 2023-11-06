@@ -19,7 +19,7 @@ const LAMP_IP = process.env.LAMP_IP || '192.168.0.100'
 const LAMP_PORT = parseInt(process.env.LAMP_PORT || '0000') || 10000
 
 let openedSocketFlag = false
-let pingInterval: NodeJS.Timer
+let pingInterval: string | number | NodeJS.Timeout | undefined
 let pongTimeout: NodeJS.Timeout
 
 

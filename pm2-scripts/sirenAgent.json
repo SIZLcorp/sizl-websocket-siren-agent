@@ -3,11 +3,12 @@
 		{
 			"name": "Siren",
 			"script": "node",
-			"args": "dist",
+			"args": "dist/src",
 			"env": {
+				"DEBUG":"*",
 				"MFR_CODE": "P0000151",
-				"COMPANY_CODE": "5YN15X",
-				"WEBSOCKET_URL": "wss://fw1j7695z7.execute-api.ap-northeast-2.amazonaws.com/dev"
+				"COMPANY_CODE": "7BR82P",
+				"WEBSOCKET_URL": "wss://4g4xdeokef.execute-api.ap-northeast-2.amazonaws.com/dev"
 			}
 		}
 	]
